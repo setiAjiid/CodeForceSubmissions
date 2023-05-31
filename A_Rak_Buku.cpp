@@ -1,26 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
+
 int main(){
-    int n,rak, arr[20000], sum = 0, cek = 0;
-    memset(arr,0,sizeof(arr));
-    cin>>n>>rak;
+    ll n, arr1[10001],arr2[10001], sum = 0;
+    cin>>n;
     for (int i=0;i<n;i++){
-        cin>>arr[i];
+        cin>>arr1[i];
     }
-    int ukuran = sizeof(arr)/sizeof(arr[0]);
-    sort(arr, arr+ukuran, greater<int>());
     for (int i=0;i<n;i++){
-        sum += arr[i];
-        cek++;
-        if (sum>=rak){
-            break;
-        }
+        cin>>arr2[i];
     }
-    cout<<cek<<endl;
-
-
-
-
-
+    sort(arr1,arr1+n);
+    sort(arr2,arr2+n, greater<int>());
+    for (int i=0;i<n;i++){
+        sum += arr1[i]*arr2[i];
+    }
+    cout<<sum;
 }
